@@ -3,6 +3,8 @@ window.onload = function () {
 }
 
 function createGrid() {
+    let matrix = generateValidSudokuGrid()
+
     for (let row = 0; row < 9; row++) {
         for (let column = 0; column < 9; column++) {
             let newTile = document.createElement("div")
@@ -18,7 +20,13 @@ function createGrid() {
             }
 
             document.getElementById("board").append(newTile)
-            newTile.innerText = Math.floor(Math.random() * 9 + 1).toString()
+            fillTile(newTile, matrix[row][column])
         }
+    }
+}
+
+function fillTile(tile, value) {
+    if (value !== 0) {
+        tile.innerText = value
     }
 }
