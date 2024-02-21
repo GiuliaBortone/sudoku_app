@@ -7,7 +7,16 @@ function createGrid() {
         for (let column = 0; column < 9; column++) {
             let newTile = document.createElement("div")
             newTile.classList.add("tile")
-            newTile.id = row + '-' + column
+            newTile.id = "tile-" + row + '-' + column
+
+            if (column === 2 || column === 5) {
+                newTile.classList.add("right-border")
+            }
+
+            if (row === 2 || row === 5) {
+                newTile.classList.add("bottom-border")
+            }
+
             document.getElementById("board").append(newTile)
             newTile.innerText = Math.floor(Math.random() * 9 + 1).toString()
         }

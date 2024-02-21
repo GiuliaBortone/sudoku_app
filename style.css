@@ -21,3 +21,12 @@
     align-items: center;
     cursor: pointer;
 }
+
+.right-border {
+    border-right: 2px black solid !important;
+}
+
+.bottom-border {
+    border-bottom: 2px black solid !important;
+}
+
