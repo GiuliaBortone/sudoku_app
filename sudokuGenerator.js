@@ -1,5 +1,3 @@
-let fullMatrix = [];
-
 function generateValidSudokuGrid() {
     initialiseEmptyMatrix()
     fillMainDiagonalBoxes()
@@ -7,6 +5,7 @@ function generateValidSudokuGrid() {
 }
 
 function initialiseEmptyMatrix() {
+    fullMatrix = []
     for (let i = 0; i < 9; i++) {
         let row = []
 
@@ -61,7 +60,7 @@ function fillRemainingCells(startingRow, startingColumn) {
     }
 
     for (let newValue = 1; newValue <= 9; newValue++) {
-        if (canBeAdded(newValue, startingRow, startingColumn)) {
+        if (canBeAdded(fullMatrix, newValue, startingRow, startingColumn)) {
             fullMatrix[startingRow][startingColumn] = newValue
 
             if (fillRemainingCells(startingRow, startingColumn + 1)) {
@@ -73,42 +72,3 @@ function fillRemainingCells(startingRow, startingColumn) {
 
     return false
 }
-
-function canBeAdded(newValue, startingRow, startingColumn) {
-    return isNotInRow(newValue, startingRow) &&
-        isNotInColumn(newValue, startingColumn) &&
-        isNotInBox(newValue, startingRow, startingColumn)
-}
-
-function isNotInRow(value, row) {
-    for (let column = 0; column < 9; column++) {
-        if (fullMatrix[row][column] === value) {
-            return false
-        }
-    }
-    return true
-}
-
-function isNotInColumn(value, column) {
-    for (let row = 0; row < 9; row++) {
-        if (fullMatrix[row][column] === value) {
-            return false
-        }
-    }
-    return true
-}
-
-function isNotInBox(value, row, column) {
-    const startingRow = row - (row % 3)
-    const startingColumn = column - (column % 3)
-
-    for (let i = 0; i < 3; i++) {
-        for (let j = 0; j < 3; j++) {
-            if (fullMatrix[startingRow + i][startingColumn + j] === value) {
-                return false
-            }
-        }
-    }
-    return true
-}
-

@@ -1,10 +1,37 @@
-let mistakesLeft = 3
-
 window.onload = function () {
+    newGame("easy")
+}
+
+function deleteGrid() {
+    const oldTiles = document.querySelectorAll('.tile');
+
+    oldTiles.forEach(function (tile) {
+        tile.parentNode.removeChild(tile)
+    })
+}
+
+function newGame(mode) {
+    mistakesLeft = 3
     showMistakes()
     generateValidSudokuGrid()
+    removeCells(mode)
     createGrid()
 }
+
+document.getElementById("easy").addEventListener('click', function() {
+    deleteGrid()
+    newGame("easy")
+})
+
+document.getElementById("medium").addEventListener('click', function() {
+    deleteGrid()
+    newGame("medium")
+})
+
+document.getElementById("hard").addEventListener('click', function() {
+    deleteGrid()
+    newGame("hard")
+})
 
 function showMistakes() {
     document.getElementById("mistakes").innerText = mistakesLeft.toString()
@@ -26,7 +53,7 @@ function createGrid() {
             }
 
             document.getElementById("board").append(newTile)
-            fillTile(newTile, fullMatrix[row][column])
+            fillTile(newTile, playableMatrix[row][column])
         }
     }
 }
@@ -36,3 +63,4 @@ function fillTile(tile, value) {
         tile.innerText = value
     }
 }
+
