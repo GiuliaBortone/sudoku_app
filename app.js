@@ -1,10 +1,16 @@
+let mistakesLeft = 3
+
 window.onload = function () {
+    showMistakes()
+    generateValidSudokuGrid()
     createGrid()
 }
 
-function createGrid() {
-    let matrix = generateValidSudokuGrid()
+function showMistakes() {
+    document.getElementById("mistakes").innerText = mistakesLeft.toString()
+}
 
+function createGrid() {
     for (let row = 0; row < 9; row++) {
         for (let column = 0; column < 9; column++) {
             let newTile = document.createElement("div")
@@ -20,7 +26,7 @@ function createGrid() {
             }
 
             document.getElementById("board").append(newTile)
-            fillTile(newTile, matrix[row][column])
+            fillTile(newTile, fullMatrix[row][column])
         }
     }
 }
