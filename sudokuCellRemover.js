@@ -33,18 +33,22 @@ function removeCells(chosenDifficulty) {
 function isSolvable(matrix) {
     for (let row = 0; row < 9; row++) {
         for (let column = 0; column < 9; column++) {
-            if (matrix[row][column] === 0) {
-                for (let value = 1; value <= 9; value++) {
-                    if (canBeAdded(matrix, value, row, column)) {
-                        matrix[row][column] = value
-                        if (isSolvable(matrix)) {
-                            return true
-                        }
-                        matrix[row][column] = 0
-                    }
-                }
-                return false
+            if (matrix[row][column] !== 0) {
+                continue
             }
+
+            for (let value = 1; value <= 9; value++) {
+                if (!canBeAdded(matrix, value, row, column)) {
+                    continue
+                }
+
+                matrix[row][column] = value
+                if (isSolvable(matrix)) {
+                    return true
+                }
+                matrix[row][column] = 0
+            }
+            return false
         }
     }
     return true
