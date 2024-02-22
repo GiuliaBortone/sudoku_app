@@ -27,7 +27,8 @@ function removeCells(chosenDifficulty) {
         remainingClues--
     }
 
-    playableMatrix = modifiedMatrix
+    playableMatrix = deepCopy(modifiedMatrix)
+    matrixInPlay = deepCopy(modifiedMatrix)
 }
 
 function isSolvable(matrix) {

@@ -16,7 +16,7 @@ button {
     height: 450px;
     display: flex;
     flex-wrap: wrap;
-    margin: auto;
+    margin: 0 auto;
 }
 
 #board .tile {
@@ -25,7 +25,6 @@ button {
     box-sizing: border-box;
     border-spacing: 0;
     border: 1px dimgrey solid;
-    background-color: rgba(211, 211, 211, 0.2);
     font-family: "Kode Mono";
     font-size: 20px;
     font-weight: bold;
@@ -41,6 +40,16 @@ button {
 
 .beginning-tile {
     color: black;
+    background-color: rgba(211, 211, 211, 0.4);
+    cursor: revert !important;
+}
+
+.mistake {
+    color: darkred;
+}
+
+.undo-mistake {
+    color: rgba(0, 0, 0, 0.5) !important;
 }
 
 .right-border {
@@ -49,5 +58,35 @@ button {
 
 .bottom-border {
     border-bottom: 2px black solid !important;
+}
+
+#digits {
+    width: 450px;
+    height: 50px;
+    margin: 30px auto 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#digits .number {
+    width: 46px;
+    height: 46px;
+    box-sizing: border-box;
+    border-spacing: 0;
+    border: 1px black solid;
+    margin: 2px;
+    font-family: "Kode Mono";
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.selected-digit {
+    background-color: lightgray;
 }
 
