@@ -11,8 +11,6 @@ function deleteGrid() {
 }
 
 function newGame(mode) {
-    mistakesLeft = 3
-    showMistakes()
     generateValidSudokuGrid()
     removeCells(mode)
     createGrid()
@@ -32,10 +30,6 @@ document.getElementById("hard").addEventListener('click', function() {
     deleteGrid()
     newGame("hard")
 })
-
-function showMistakes() {
-    document.getElementById("mistakes").innerText = mistakesLeft.toString()
-}
 
 function createGrid() {
     for (let row = 0; row < 9; row++) {

@@ -11,18 +11,6 @@ button {
     font-size: 18px;
 }
 
-.mistakes-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px auto;
-    font-size: 25px;
-}
-
-#mistakes {
-    margin-left: 10px;
-}
-
 #board {
     width: 450px;
     height: 450px;
