@@ -47,6 +47,14 @@ button {
     cursor: pointer;
 }
 
+.tile {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.beginning-tile {
+    color: black;
+}
+
 .right-border {
     border-right: 2px black solid !important;
 }

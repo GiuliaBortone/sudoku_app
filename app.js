@@ -42,7 +42,8 @@ function createGrid() {
         for (let column = 0; column < 9; column++) {
             let newTile = document.createElement("div")
             newTile.classList.add("tile")
-            newTile.id = "tile-" + row + '-' + column
+            newTile.classList.add("beginning-tile")
+            newTile.id = "tile-" + row + "-" + column
 
             if (column === 2 || column === 5) {
                 newTile.classList.add("right-border")

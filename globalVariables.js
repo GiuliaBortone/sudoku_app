@@ -1,3 +1,3 @@
-let mistakesLeft = 3
+let mistakesLeft
 let fullMatrix = [];
 let playableMatrix = []
