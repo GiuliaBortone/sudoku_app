@@ -2,13 +2,30 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 20px auto;
+    margin: 20px auto 0 auto;
     font-size: 25px;
 }
 
 button {
     margin: auto 10px;
     font-size: 18px;
+}
+
+.win {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    font-size: 25px;
+    color: transparent;
+}
+
+.show-win {
+    color: darkgreen !important;
+}
+
+.win p {
+    text-align: center;
 }
 
 #board {
