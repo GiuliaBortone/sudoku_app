@@ -1,4 +1,4 @@
-function canBeAdded(matrix, value, row, column) {
+export function canBeAdded(matrix, value, row, column) {
     function isNotInRow() {
         for (let column = 0; column < 9; column++) {
             if (matrix[row][column] === value) {
@@ -34,7 +34,7 @@ function canBeAdded(matrix, value, row, column) {
     return isNotInRow() && isNotInColumn() && isNotInBox()
 }
 
-function isNotADouble(elementRow, elementColumn) {
+export function isNotADouble(matrixInPlay, elementRow, elementColumn) {
     const value = matrixInPlay[elementRow][elementColumn]
 
     function noDoubleInRow() {

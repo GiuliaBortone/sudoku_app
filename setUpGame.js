@@ -1,11 +1,21 @@
+import {generateSudoku} from "./sudokuGenerator.js";
+import {insertDigitsPad} from "./digitsPad.js";
+import {selectTileToInsertNumber} from "./gamePlay.js";
+import {deepCopy} from "./utils.js";
+import {selection} from "./globalVariables.js";
+
 window.onload = function () {
     newGame("easy")
+    insertDigitsPad()
 }
+
+let matrixInPlay = []
+let startingMatrix = []
 
 function resetGame() {
     deleteGrid()
-    selectedNumber = null;
-    selectedTile = null;
+    selection.selectedNumber = null
+    selection.selectedTile = null
 }
 
 function deleteGrid() {
@@ -17,10 +27,9 @@ function deleteGrid() {
 }
 
 function newGame(mode) {
-    generateValidSudokuGrid()
-    removeCells(mode)
+    startingMatrix = generateSudoku(mode)
+    matrixInPlay = deepCopy(startingMatrix)
     createGrid()
-    insertDigitsPad()
 }
 
 document.getElementById("easy").addEventListener('click', function () {
@@ -54,7 +63,7 @@ function createGrid() {
             }
 
             document.getElementById("board").append(newTile)
-            fillTile(newTile, playableMatrix[row][column])
+            fillTile(newTile, matrixInPlay[row][column])
         }
     }
 }
@@ -66,5 +75,5 @@ function fillTile(tile, value) {
         return
     }
 
-    tile.addEventListener('click', selectTileToInsertNumber)
+    tile.addEventListener('click', (event) => selectTileToInsertNumber(event.currentTarget, matrixInPlay, startingMatrix))
 }

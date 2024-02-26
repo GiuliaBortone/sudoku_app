@@ -1,4 +1,6 @@
-function insertDigitsPad() {
+import {selection} from "./globalVariables.js";
+
+export function insertDigitsPad() {
     for (let digit = 1; digit <= 9; digit++) {
         let number = document.createElement("div")
         number.id = digit.toString()
@@ -11,11 +13,11 @@ function insertDigitsPad() {
     }
 }
 
-function selectDigitToInsert() {
-    if (selectedNumber != null) {
-        selectedNumber.classList.remove("selected-digit")
+export function selectDigitToInsert() {
+    if (selection.selectedNumber != null) {
+        selection.selectedNumber.classList.remove("selected-digit")
     }
 
-    selectedNumber = this
-    selectedNumber.classList.add("selected-digit")
+    selection.selectedNumber = this
+    selection.selectedNumber.classList.add("selected-digit")
 }
